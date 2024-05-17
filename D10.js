@@ -206,21 +206,49 @@ function deleteProp(obj, propObj) {
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
 */
 
+let newest = movies[0];
+function newestMovie(movies) {
+  for (let index = 1; index < movies.length; index++) {
+    if (movies[index].Year > newest.Year) {
+      newest = movies[index];
+    }
+  }
+  return newest;
+}
+
 /* ESERCIZIO 13
   Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
 */
+
+function countMovies(movies) {
+  return movies.length;
+}
 
 /* ESERCIZIO 14
   Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
 */
 
+function onlyTheYears(movies) {
+  return movies.map((movies) => movies.Year);
+}
+
 /* ESERCIZIO 15
   Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
 */
 
+function onlyInLastMillennium(movies) {
+  return movies
+    .filter((movies) => movies.Year < 2000)
+    .map((movies) => movies.Year);
+}
+
 /* ESERCIZIO 16
   Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
 */
+
+function sumAllTheYears(movies) {
+  return movies.reduce((acc, movies) => acc + movies.Year, 0);
+}
 
 /* ESERCIZIO 17
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
