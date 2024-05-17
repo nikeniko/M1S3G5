@@ -341,6 +341,13 @@ const addMyList = function () {
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const clrearList = function () {
+  const myList = document.getElementById("myList");
+  while (myList.firstChild) {
+    myList.removeChild(myList.firstChild);
+  }
+};
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
