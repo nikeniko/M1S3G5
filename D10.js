@@ -254,10 +254,34 @@ function sumAllTheYears(movies) {
   Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
 */
 
+function searchByTitle(movies, search) {
+  const lowercase = search.toLowerCase();
+  return movies.filter((movie) =>
+    movie.Title.toLocaleLowerCase().includes(lowercase)
+  );
+}
+
 /* ESERCIZIO 18
   Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
   "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
 */
+
+function searchAndDivide(movies, search) {
+  const lowerCase = search.toLowerCase();
+  const result = {
+    match: [],
+    unmatch: [],
+  };
+  movies.forEach((movie) => {
+    if (movie.title.toLowerCase().includes(lowerCase)) {
+      result.match.push(movie);
+    } else {
+      result.unmatch.push(movie);
+    }
+  });
+
+  return result;
+}
 
 /* ESERCIZIO 19
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
@@ -269,21 +293,49 @@ function sumAllTheYears(movies) {
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
 
+function getId() {
+  const container = document.getElementById("surname");
+}
+
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
+
+function getTag() {
+  const tag = document.querySelectorAll("td");
+}
 
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
 
+function stampatd() {
+  const tdList = getTag();
+  tdList.forEach((td) => {
+    console.log(td.value);
+  });
+}
+
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const paintItGreen = function () {
+  const unorderedLists = document.querySelectorAll("a");
+  unorderedLists.forEach((a) => {
+    a.style.backgroundColor = "green";
+  });
+};
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const addMyList = function () {
+  const myList = document.getElementById("myList");
+  const newItem = document.createElement("li");
+  myList.appendChild(newItem);
+};
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
