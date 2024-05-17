@@ -149,13 +149,42 @@ function whatDayIsIt() {
   }
 */
 
+function rollTheDices(num1) {
+  let values = [];
+  let sum = 0;
+  for (let index = 0; index < num1; index++) {
+    let value = dice();
+    sum += value;
+    values.push(value);
+  }
+  return { sum, values };
+}
+
 /* ESERCIZIO 9
   Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
 */
 
+function howManyDays(a) {
+  let dataInMillisecondi = a.getTime();
+  let oggi = new Date();
+  let dataDiOggiInMillisecondi = oggi.getTime();
+  let differenza = dataDiOggiInMillisecondi - dataInMillisecondi;
+  let differenzaInGiorni = Math.floor(differenza / (1000 * 60 * 60 * 24));
+  return differenzaInGiorni;
+}
+
 /* ESERCIZIO 10
   Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
 */
+
+function isTodayMyBirthday() {
+  let oggi = new Date();
+  let compleanno = new Date(oggi.getFullYear(), 11, 4);
+  return (
+    oggi.getDate() === compleanno.getDate() &&
+    oggi.getMonth() === compleanno.getMonth()
+  );
+}
 
 // Arrays & Oggetti
 
@@ -165,6 +194,13 @@ function whatDayIsIt() {
   Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
   in esso la proprietà chiamata come la stringa passata come secondo parametro.
 */
+
+function deleteProp(obj, propObj) {
+  if (obj.hasOwnProprety(propObj)) {
+    delete obj[propObj];
+  }
+  return obj;
+}
 
 /* ESERCIZIO 12
   Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
