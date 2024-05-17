@@ -287,6 +287,11 @@ function searchAndDivide(movies, search) {
   Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
 */
 
+const removeIndex = function (index) {
+  movies.splice(index, 1);
+  return movies;
+};
+
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
 /* ESERCIZIO 20
@@ -341,7 +346,7 @@ const addMyList = function () {
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
-const clrearList = function () {
+const clearList = function () {
   const myList = document.getElementById("myList");
   while (myList.firstChild) {
     myList.removeChild(myList.firstChild);
@@ -351,6 +356,13 @@ const clrearList = function () {
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const addTest = function () {
+  const pippo = document.querySelector("tr");
+  pippo.forEach((pippi) => {
+    pippi.classList.add("test");
+  });
+};
 
 // [EXTRA] JS Avanzato
 
@@ -365,6 +377,19 @@ const clrearList = function () {
   ***
 
 */
+
+const halfTree = function (pippo) {
+  let gigi = "";
+  for (let index = 1; index <= pippo; index++) {
+    gigi = "\n";
+    for (let p = 1; p <= index; p++) {
+      gigi += "*";
+    }
+    console.log(gigi);
+  }
+};
+
+halfTree(3);
 
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
